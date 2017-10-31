@@ -7,7 +7,7 @@ Component {
     Row {
         id: row
         width: parent.width
-       height: 100
+        height: imageURL.height
 
         //width: 300
 //        width: Layout.width
@@ -17,8 +17,9 @@ Component {
         Image {
             id: imageURL
             source: image
-            width: 100
-            height: 100
+            height: 150
+            width: height
+            fillMode: Image.PreserveAspectCrop
         }
 
         Column {
@@ -28,14 +29,12 @@ Component {
                 text: title
                 font.family: "GeosansLight"
                 font.pointSize: 14
-                width: row.width - 100
-                //wrapMode: Text.Wrap
-                //anchors.horizontalCenter: Layout.horizontalCenter
-                //effectiveHorizontalAlignment: Text.AlignJustify
+                width: row.width - imageURL.width
+                elide: Text.ElideRight
 
-//                NumberAnimation on x{
-//                    from: 0//parent.width
-//                    to: -parent.width//-1*parent.width
+//                NumberAnimation on x {
+//                    from: 0 //parent.width
+//                    to: 300 //-1*parent.width
 //                    loops: Animation.Infinite
 //                    duration: 3000
 //                }
@@ -45,10 +44,10 @@ Component {
                 text: description
                 wrapMode: Text.Wrap
                 horizontalAlignment: Text.AlignJustify
-                width: row.width - 110
-                height: imageURL.height * 0.8
+                width: row.width - imageURL.width
+                height: imageURL.height - 20
                 elide: Text.ElideRight
-//                Component.onCompleted: console.log(parent.height)
+                Component.onCompleted: console.log(parent.width + " " + row.width)
             }
         }
     }

@@ -6,7 +6,7 @@ function parseJSON() {
 
     var APIKey = "824b725c4c2441358d515b5c2f3461f0";
     var request = new XMLHttpRequest;
-    request.open("GET", "https://newsapi.org/v1/articles?source=techcrunch&sortBy=top&apiKey=" + APIKey);
+    request.open("GET", "https://newsapi.org/v1/articles?source=techcrunch&sortBy=latest&apiKey=" + APIKey);
 
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
