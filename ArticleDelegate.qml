@@ -8,10 +8,6 @@ Component {
         id: row
         width: parent.width
         height: imageURL.height
-
-        //width: 300
-//        width: Layout.width
-//        height: Layout.height * 0.1
         spacing: 5
 
         Image {
@@ -33,8 +29,10 @@ Component {
                 elide: Text.ElideRight
 
 //                NumberAnimation on x {
-//                    from: 0 //parent.width
-//                    to: 300 //-1*parent.width
+//                    id: anime
+//                    running: false
+//                    from: row.width //parent.width
+//                    to: 0 //-1*parent.width
 //                    loops: Animation.Infinite
 //                    duration: 3000
 //                }
@@ -47,9 +45,37 @@ Component {
                 width: row.width - imageURL.width
                 height: imageURL.height - 20
                 elide: Text.ElideRight
-                Component.onCompleted: console.log(parent.width + " " + row.width)
             }
         }
+
+        /* Animation */
+        Component.onCompleted: animation.start()
+        transform: Rotation {
+            id: rt
+            origin.x: width
+            origin.y: height
+            axis {
+                x: 0.3
+                y: 1
+                z: 1
+            }
+            angle: 0
+        }
+
+        SequentialAnimation {
+            id: animation
+            running: false
+
+            RotationAnimation {
+                target: rt
+                from: 180
+                to: 0
+                duration: 800
+                easing.type: Easing.OutBack
+                property: "angle"
+            }
+        }
+
     }
 }
 
