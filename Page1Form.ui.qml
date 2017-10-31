@@ -3,22 +3,23 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 
 Item {
-    property alias textField1: textField1
-    property alias button1: button1
 
-    RowLayout {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 20
-        anchors.top: parent.top
+    property alias listModel: listModel
 
-        TextField {
-            id: textField1
-            placeholderText: qsTr("Text Field")
-        }
+    ListView {
+        id: listView
+        anchors.fill: parent
+        anchors.margins: 10
+        spacing: 5
 
-        Button {
-            id: button1
-            text: qsTr("Press Me")
-        }
+        model: ListModel { id: listModel }
+        delegate: ArticleDelegate { }
     }
 }
+
+
+
+
+
+
+
