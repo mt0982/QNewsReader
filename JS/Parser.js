@@ -20,12 +20,14 @@ function parseJSON() {
                 var urlToImage = json.articles[i].urlToImage
                 var title = json.articles[i].title
                 var description = json.articles[i].description
-                //console.log(urlToImage)
+                var webURL = json.articles[i].url
+                //console.log(webURL)
 
                 page1.listModel.append({
                                            "image" : urlToImage,
                                            "title" : title,
-                                           "description" : description
+                                           "description" : description,
+                                           "webURL" : webURL
                                        })
 
             }
