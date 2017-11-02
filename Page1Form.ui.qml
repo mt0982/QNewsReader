@@ -21,8 +21,26 @@ Item {
         ScrollBar.vertical: ScrollBar { }
 
         section.property: "categoryName"
-        section.criteria: ViewSection.FullString
-        section.delegate: Rectangle { height: 10 }
+        section.criteria: ViewSection.FirstCharacter
+        section.delegate: SectionHeaderDelegate {}
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
