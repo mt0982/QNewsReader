@@ -16,10 +16,13 @@ function parseCategories() {
             var categoriesCount = json.sources.length
 
             for (var i = 0; i < categoriesCount; i++) {
+
                 var categoryName = json.sources[i].name
+                var categoryID = json.sources[i].id
 
                 page0.listModel.append({
-                                           "categoryName" : categoryName
+                                           "categoryName" : categoryName,
+                                           "categoryID" : categoryID
                                        })
             }
         }
@@ -28,13 +31,13 @@ function parseCategories() {
     request.send()
 }
 
-function parseJSON(type) {
+function parseJSON(id, type) {
 
     page1.listModel.clear()
 
     var APIKey = "824b725c4c2441358d515b5c2f3461f0";
     var request = new XMLHttpRequest;
-    request.open("GET", "https://newsapi.org/v1/articles?source=techcrunch&sortBy=" + type + "&apiKey=" + APIKey);
+    request.open("GET", "https://newsapi.org/v1/articles?source=" + id + "&sortBy=" + type + "&apiKey=" + APIKey);
 
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {

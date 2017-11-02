@@ -9,7 +9,7 @@ Item {
 
     ListView {
         id: listView
-        anchors.rightMargin: 5
+        anchors.rightMargin: 0
         anchors.leftMargin: 5
         anchors.bottomMargin: 5
         anchors.topMargin: 5
@@ -18,6 +18,7 @@ Item {
 
         delegate: CategoryDelegate { id: listDelegate }
         model: ListModel { id: listModel }
+        ScrollBar.vertical: ScrollBar { }
 
         section.property: "categoryName"
         section.criteria: ViewSection.FirstCharacter

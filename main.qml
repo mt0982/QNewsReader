@@ -12,7 +12,7 @@ ApplicationWindow {
     title: qsTr("Hello World")
 
     Component.onCompleted: {
-        Parser.parseJSON("top")
+        //Parser.parseJSON("top")
         Parser.parseCategories()
     }
 
