@@ -1,54 +1,27 @@
-import QtQuick 2.7
+import QtQuick 2.4
 import QtQuick.Controls 2.0
 
 Item {
-    id: item1
+    width: 400
+    height: 400
 
     property alias listModel: listModel
-    property alias listView: listView
-    property alias tabButtonTop: tabButtonTop
-    property alias tabButtonLatest: tabButtonLatest
 
     ListView {
         id: listView
-        anchors.top: tabBar.bottom
-        anchors.topMargin: 5
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.left: parent.left
+        anchors.rightMargin: 5
         anchors.leftMargin: 5
-        anchors.bottom: parent.bottom
         anchors.bottomMargin: 5
+        anchors.topMargin: 5
+        anchors.fill: parent
         spacing: 5
-        ScrollBar.vertical: ScrollBar { }
 
+        delegate: CategoryDelegate { id: listDelegate }
         model: ListModel { id: listModel }
-        delegate: ArticleDelegate { }
+
+        section.property: "categoryName"
+        section.criteria: ViewSection.FirstCharacter
+        section.delegate: Rectangle { height: 10 }
     }
 
-    TabBar {
-        id: tabBar
-        height: 48
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-
-        TabButton {
-            id: tabButtonTop
-            text: qsTr("Top")
-        }
-
-        TabButton {
-            id: tabButtonLatest
-            text: qsTr("Latest")
-        }
-    }
 }
-
-
-
-
-
-
-

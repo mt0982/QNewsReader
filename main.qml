@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.3
 import "JS/Parser.js" as Parser
 
 ///home/asus/Programy/Qt/5.9.2/Src/qtquickcontrols2/examples/quickcontrols2/gallery/images
@@ -12,7 +11,10 @@ ApplicationWindow {
     height: 800 / 1.2
     title: qsTr("Hello World")
 
-    Component.onCompleted: Parser.parseJSON("top")
+    Component.onCompleted: {
+        Parser.parseJSON("top")
+        Parser.parseCategories()
+    }
 
     header: ToolBar {
 //        height: 64
@@ -38,7 +40,8 @@ ApplicationWindow {
         anchors.fill: parent
         interactive: false
 
-        Page1 { id: page1 }
+        Page1 { id: page0 }
+        Page2 { id: page1 }
         WebEngine { id: webEngine }
     }
 }

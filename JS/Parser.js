@@ -2,6 +2,32 @@
 //https://newsapi.org/hacker-news-api
 //https://newsapi.org/techcrunch-api
 
+function parseCategories() {
+
+    page0.listModel.clear()
+
+    var request = new XMLHttpRequest;
+    request.open("GET", "https://newsapi.org/v1/sources");
+
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            var json = JSON.parse(request.responseText);
+
+            var categoriesCount = json.sources.length
+
+            for (var i = 0; i < categoriesCount; i++) {
+                var categoryName = json.sources[i].name
+
+                page0.listModel.append({
+                                           "categoryName" : categoryName
+                                       })
+            }
+        }
+    }
+
+    request.send()
+}
+
 function parseJSON(type) {
 
     page1.listModel.clear()
@@ -31,28 +57,9 @@ function parseJSON(type) {
                                            "description" : description,
                                            "webURL" : webURL
                                        })
-
             }
-
-            //console.log(json.results[0].artistName)
-
-//            for (var i = 0; i < json.resultCount; i++) {
-
-//                var artistName = json.results[i].artistName
-//                var imageURL = json.results[i].artworkUrl100
-//                var trackName = json.results[i].trackName
-//                var collectionName = json.results[i].collectionName
-//                var kind = json.results[i].kind
-
-//                pageFirst.listModel.append({
-//                                               "name" : artistName,
-//                                               "imageURL" : imageURL,
-//                                               "trackName" : trackName,
-//                                               "collectionName" : collectionName,
-//                                               "kind" : kind
-//                                           })
-//            }
         }
     }
+
     request.send();
 }
