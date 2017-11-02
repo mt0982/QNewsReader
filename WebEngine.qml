@@ -5,6 +5,7 @@ import QtQuick.Controls 2.2
 Page {
 
     property alias url: webEngine.url
+    property string headerTitle: "Preview"
 
     WebEngineView {
         anchors.fill: parent
