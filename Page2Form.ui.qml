@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
+import QtQuick.Controls.Material 2.1
 
 Item {
     id: item1
@@ -9,6 +10,8 @@ Item {
     property alias tabButtonTop: tabButtonTop
     property alias tabButtonLatest: tabButtonLatest
     property alias tabBar: tabBar
+
+    Material.accent: "white"
 
     ListView {
         id: listView
@@ -34,15 +37,38 @@ Item {
         anchors.leftMargin: 0
         anchors.right: parent.right
         anchors.rightMargin: 0
+        spacing: 0
 
         TabButton {
             id: tabButtonTop
             text: qsTr("Top")
+
+            background: Rectangle {
+                color: "#607D8B"
+
+//                Rectangle {
+//                    anchors.bottom: parent.bottom
+//                    width: parent.width
+//                    height: -3
+//                    color: "red"
+//                }
+            }
         }
 
         TabButton {
             id: tabButtonLatest
             text: qsTr("Latest")
+
+            background: Rectangle {
+                color: "#607D8B"
+
+//                Rectangle {
+//                    anchors.bottom: parent.bottom
+//                    width: parent.width
+//                    height: -3
+//                    color: "red"
+//                }
+            }
         }
     }
 }

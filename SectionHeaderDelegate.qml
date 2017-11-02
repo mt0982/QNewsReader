@@ -4,6 +4,7 @@ Rectangle {
     height: 10
     width: parent.width
     id: spacer
+    color: "transparent"
 
     Rectangle {
         y: 3
@@ -15,6 +16,7 @@ Rectangle {
 
         Rectangle {
             anchors.centerIn: parent
+            color: "transparent"
             width: 32
             height: 32
 

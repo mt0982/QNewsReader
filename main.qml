@@ -17,27 +17,26 @@ ApplicationWindow {
     }
 
     header: ToolBar {
-        height: 64
+        height: page1.tabButtonTop.height
 
-//        background: Rectangle {
-//            anchors.fill: parent
-//            color: "#35b566"
-//        }
+        background: Rectangle {
+            anchors.fill: parent
+            color: "#607D8B" //"#35b566"
+        }
 
         /* Header Text */
         Text {
             anchors.centerIn: parent
             text: swipeView.currentItem.headerTitle
-            font.family: "Droid Sans Armenian"
-            font.bold: true
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+            font: page1.tabButtonTop.font
 
             /* Required To Auto Size */
             width: parent.width * 0.6
             height: parent.height * 0.6
             color: "#ffffff"
-            font.pointSize: 32
+            //font.pointSize: 32
             minimumPointSize: 10
             fontSizeMode: Text.Fit
         }
@@ -47,9 +46,9 @@ ApplicationWindow {
             id: buttonBackward
             visible: (swipeView.currentIndex) ? true : false
             source: "qrc:/Icon/back.png"
-            height: 32
-            width: 32
-            anchors.leftMargin: 15
+            height: parent.height * 0.5
+            width: height
+            x: 10
             anchors.verticalCenter: parent.verticalCenter
 
             MouseArea {
