@@ -20,12 +20,16 @@ ApplicationWindow {
             id: page1
         }
 
-        Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
-            }
+        WebEngine {
+            id: webEngine
         }
+
+//        Page {
+//            Label {
+//                text: qsTr("Second page")
+//                anchors.centerIn: parent
+//            }
+//        }
     }
 
     footer: TabBar {
@@ -39,3 +43,14 @@ ApplicationWindow {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

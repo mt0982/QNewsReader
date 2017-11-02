@@ -6,5 +6,6 @@
         <file>qtquickcontrols2.conf</file>
         <file>JS/Parser.js</file>
         <file>ArticleDelegate.qml</file>
+        <file>WebEngine.qml</file>
     </qresource>
 </RCC>

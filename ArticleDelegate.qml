@@ -50,6 +50,7 @@ Component {
 
         /* Animation */
         Component.onCompleted: animation.start()
+
         transform: Rotation {
             id: rt
             origin.x: width
