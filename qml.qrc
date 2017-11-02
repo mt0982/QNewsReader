@@ -7,5 +7,6 @@
         <file>JS/Parser.js</file>
         <file>ArticleDelegate.qml</file>
         <file>WebEngine.qml</file>
+        <file>Icon/back.png</file>
     </qresource>
 </RCC>

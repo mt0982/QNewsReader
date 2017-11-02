@@ -3,44 +3,43 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.3
 import "JS/Parser.js" as Parser
 
+///home/asus/Programy/Qt/5.9.2/Src/qtquickcontrols2/examples/quickcontrols2/gallery/images
+//https://material.io/guidelines/components/tabs.html#tabs-usage
+
 ApplicationWindow {
     visible: true
     width: 480 / 1.2
     height: 800 / 1.2
     title: qsTr("Hello World")
 
-    Component.onCompleted: Parser.parseJSON()
+    Component.onCompleted: Parser.parseJSON("top")
 
-    SwipeView {
-        id: swipeView
-        anchors.fill: parent
-        currentIndex: tabBar.currentIndex
+    header: ToolBar {
+//        height: 64
 
-        Page1 {
-            id: page1
-        }
+//        Image {
+//            id: buttonBackward
+//            visible: (swipeView.currentIndex) ? true : false
+//            source: "qrc:/Icon/back.png"
+//            height: 48
+//            width: 48
+//            anchors.leftMargin: 15
+//            anchors.verticalCenter: parent.verticalCenter
 
-        WebEngine {
-            id: webEngine
-        }
-
-//        Page {
-//            Label {
-//                text: qsTr("Second page")
-//                anchors.centerIn: parent
+//            MouseArea {
+//                anchors.fill: parent
+//                onClicked: swipeView.currentIndex = --swipeView.currentIndex
 //            }
 //        }
     }
 
-    footer: TabBar {
-        id: tabBar
-        currentIndex: swipeView.currentIndex
-        TabButton {
-            text: qsTr("First")
-        }
-        TabButton {
-            text: qsTr("Second")
-        }
+    SwipeView {
+        id: swipeView
+        anchors.fill: parent
+        interactive: false
+
+        Page1 { id: page1 }
+        WebEngine { id: webEngine }
     }
 }
 

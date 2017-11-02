@@ -13,6 +13,7 @@ Component {
         onClicked: {
             //console.log(row.websiteURL)
             webEngine.url = row.websiteURL
+            swipeView.currentIndex = ++swipeView.currentIndex
         }
 
         /* Content, Single Row */
