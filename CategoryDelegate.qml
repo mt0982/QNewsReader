@@ -12,10 +12,11 @@ Component {
         height: row.height
 
         onClicked: {
-//            console.log(categoryID)
             Parser.parseJSON(categoryID, "top")
+            page1.tabBar.currentIndex = 0
             currentCategoryID = categoryID
             swipeView.currentIndex = ++swipeView.currentIndex
+            page1.tabButtonLatest.enabled = (sortAvailable > 1) ? true : false
         }
 
         /* Content */
@@ -24,11 +25,13 @@ Component {
             spacing: 5
 
             property string categoryID: ""
+            property string categorySection: ""
+            property int sortAvailable              // "top" or "top and latest" -> size = 1 or 2
 
             Rectangle {
                 id: rectangle
                 width: height
-                height: listView.height * 0.1          //listviw contentY
+                height: listView.height * 0.1
                 color: "#35b566"
                 radius: 2
 

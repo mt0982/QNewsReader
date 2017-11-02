@@ -21,7 +21,7 @@ Item {
         ScrollBar.vertical: ScrollBar { }
 
         section.property: "categoryName"
-        section.criteria: ViewSection.FirstCharacter
+        section.criteria: ViewSection.FullString
         section.delegate: Rectangle { height: 10 }
     }
 

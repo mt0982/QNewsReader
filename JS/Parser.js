@@ -19,10 +19,13 @@ function parseCategories() {
 
                 var categoryName = json.sources[i].name
                 var categoryID = json.sources[i].id
+                var categorySection = json.sources[i].category
 
                 page0.listModel.append({
                                            "categoryName" : categoryName,
-                                           "categoryID" : categoryID
+                                           "categoryID" : categoryID,
+                                           "categorySection" : categorySection,
+                                           "sortAvailable": json.sources[i].sortBysAvailable.length
                                        })
             }
         }

@@ -8,6 +8,7 @@ Item {
     property alias listView: listView
     property alias tabButtonTop: tabButtonTop
     property alias tabButtonLatest: tabButtonLatest
+    property alias tabBar: tabBar
 
     ListView {
         id: listView

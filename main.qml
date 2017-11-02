@@ -17,22 +17,22 @@ ApplicationWindow {
     }
 
     header: ToolBar {
-//        height: 64
+        height: 64
 
-//        Image {
-//            id: buttonBackward
-//            visible: (swipeView.currentIndex) ? true : false
-//            source: "qrc:/Icon/back.png"
-//            height: 48
-//            width: 48
-//            anchors.leftMargin: 15
-//            anchors.verticalCenter: parent.verticalCenter
+        Image {
+            id: buttonBackward
+            visible: (swipeView.currentIndex) ? true : false
+            source: "qrc:/Icon/back.png"
+            height: 48
+            width: 48
+            anchors.leftMargin: 15
+            anchors.verticalCenter: parent.verticalCenter
 
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked: swipeView.currentIndex = --swipeView.currentIndex
-//            }
-//        }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: swipeView.currentIndex = --swipeView.currentIndex
+            }
+        }
     }
 
     SwipeView {
