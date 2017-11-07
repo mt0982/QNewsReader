@@ -16,10 +16,15 @@ Page {
 
     BusyIndicator {
         id: busyIndicator
-        anchors.right: webEngine.right
-        anchors.bottom: webEngine.bottom
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
         anchors.margins: 10
         Material.accent: Material.Red
         running: webEngine.loading ? true : false
+        //visible: running ? true : false
+
+        Behavior on running {
+            NumberAnimation { duration: 2000 }
+        }
     }
 }
