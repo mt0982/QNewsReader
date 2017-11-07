@@ -17,6 +17,7 @@ Component {
             currentCategoryID = categoryID
             swipeView.currentIndex = ++swipeView.currentIndex
             page1.tabButtonLatest.enabled = (sortAvailable > 1) ? true : false
+            page1.headerTitle = categoryName
         }
 
         /* Content */
