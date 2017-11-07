@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtWebEngine 1.0
+import QtWebEngine 1.1
 import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.2
 
@@ -7,6 +7,10 @@ Page {
 
     property alias url: webEngine.url
     property string headerTitle: "Preview"
+
+    Component.onCompleted: {
+        WebEngine.settings.pluginsEnabled = true;
+    }
 
     WebEngineView {
         id: webEngine
