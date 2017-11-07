@@ -12,11 +12,6 @@ Page {
         id: webEngine
         anchors.fill: parent
         url: "http://www.qt.io"
-
-        onLoadingChanged: {
-            if (loadRequest.status === WebEngineView.LoadStartedStatus) busyIndicator.visible = true
-            if (loadRequest.status === WebEngineView.LoadSucceededStatus) busyIndicator.visible = false
-        }
     }
 
     BusyIndicator {
@@ -25,5 +20,6 @@ Page {
         anchors.bottom: webEngine.bottom
         anchors.margins: 10
         Material.accent: Material.Red
+        running: webEngine.loading ? true : false
     }
 }
