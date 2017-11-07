@@ -1,5 +1,6 @@
 import QtQuick 2.4
 import QtQuick.Controls 2.0
+import "Delegate" as Delegate
 
 Item {
     width: 400
@@ -16,13 +17,17 @@ Item {
         anchors.fill: parent
         spacing: 5
 
-        delegate: CategoryDelegate { id: listDelegate }
+        delegate: Delegate.CategoryDelegate { id: listDelegate }
         model: ListModel { id: listModel }
-        ScrollBar.vertical: ScrollBar { }
+        ScrollBar.vertical: ScrollBar {
+            parent: listView
+            height: listView.availableHeight
+            width: 5
+        }
 
         section.property: "categoryName"
         section.criteria: ViewSection.FirstCharacter
-        section.delegate: SectionHeaderDelegate {}
+        section.delegate: Delegate.SectionHeaderDelegate {}
     }
 
 }

@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.1
+import "Delegate" as Delegate
 
 Item {
     id: item1
@@ -26,8 +27,12 @@ Item {
         spacing: 5
 
         model: ListModel { id: listModel }
-        delegate: ArticleDelegate { }
-        ScrollBar.vertical: ScrollBar { }
+        delegate: Delegate.ArticleDelegate { }
+        ScrollBar.vertical: ScrollBar {
+            parent: listView
+            height: listView.availableHeight
+            width: 5
+        }
     }
 
     TabBar {
@@ -44,7 +49,7 @@ Item {
             text: qsTr("Top")
 
             background: Rectangle {
-                color: "#607D8B"
+                color: "#F44336" //"#607D8B"
 
 //                Rectangle {
 //                    anchors.bottom: parent.bottom
@@ -60,7 +65,7 @@ Item {
             text: qsTr("Latest")
 
             background: Rectangle {
-                color: "#607D8B"
+                color: "#F44336" //"#607D8B"
 
 //                Rectangle {
 //                    anchors.bottom: parent.bottom

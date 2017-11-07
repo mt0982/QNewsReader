@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.2
 import QtGraphicalEffects 1.0
-import "JS/Parser.js" as Parser
+import "../JS/Parser.js" as Parser
 
 Component {
 
@@ -17,6 +17,7 @@ Component {
             currentCategoryID = categoryID
             swipeView.currentIndex = ++swipeView.currentIndex
             page1.tabButtonLatest.enabled = (sortAvailable > 1) ? true : false
+            page1.headerTitle = categoryName
         }
 
         /* Content */
@@ -25,14 +26,15 @@ Component {
             spacing: 5
 
             property string categoryID: ""
-            property string categorySection: ""
+            //property string categorySection: ""
             property int sortAvailable              // "top" or "top and latest" -> size = 1 or 2
 
+            /* Category Icon & Shortcut */
             Rectangle {
                 id: rectangle
                 width: height
                 height: listView.height * 0.1
-                color: "#35b566"
+                color: "#F44336" //"#4CAF50"
                 radius: 2
 
                 Text {
@@ -52,6 +54,7 @@ Component {
                 }
             }
 
+            /* Name & Category */
             Text {
                 id: textField
                 text: categoryName
@@ -59,6 +62,13 @@ Component {
                 verticalAlignment: Text.AlignVCenter
                 anchors.verticalCenter: rectangle.verticalCenter
             }
+        }
+
+        Text {
+            text: "[" + categorySection + "]"
+            font.bold: true
+            x: listView.width - width - 10
+            anchors.verticalCenter: parent.verticalCenter
         }
     }
 }
