@@ -11,5 +11,7 @@ Page {
         anchors.fill: parent
         id: webEngine
         url: "http://www.qt.io"
+
+        //onLoadingChanged: console.log(WebEngine.state)
     }
 }

@@ -42,15 +42,6 @@ Component {
                     font.pointSize: 14
                     width: row.width - imageURL.width
                     elide: Text.ElideRight
-
-    //                NumberAnimation on x {
-    //                    id: anime
-    //                    running: false
-    //                    from: row.width //parent.width
-    //                    to: 0 //-1*parent.width
-    //                    loops: Animation.Infinite
-    //                    duration: 3000
-    //                }
                 }
 
                 Text {

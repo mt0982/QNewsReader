@@ -28,7 +28,11 @@ Item {
 
         model: ListModel { id: listModel }
         delegate: Delegate.ArticleDelegate { }
-        ScrollBar.vertical: ScrollBar { }
+        ScrollBar.vertical: ScrollBar {
+            parent: listView
+            height: listView.availableHeight
+            width: 5
+        }
     }
 
     TabBar {
@@ -45,7 +49,7 @@ Item {
             text: qsTr("Top")
 
             background: Rectangle {
-                color: "#607D8B"
+                color: "#F44336" //"#607D8B"
 
 //                Rectangle {
 //                    anchors.bottom: parent.bottom
@@ -61,7 +65,7 @@ Item {
             text: qsTr("Latest")
 
             background: Rectangle {
-                color: "#607D8B"
+                color: "#F44336" //"#607D8B"
 
 //                Rectangle {
 //                    anchors.bottom: parent.bottom

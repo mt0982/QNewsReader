@@ -1,15 +1,13 @@
 import QtQuick 2.7
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.2
 import "JS/Parser.js" as Parser
 
-///home/asus/Programy/Qt/5.9.2/Src/qtquickcontrols2/examples/quickcontrols2/gallery/images
-//https://material.io/guidelines/components/tabs.html#tabs-usage
-
 ApplicationWindow {
+    id: root
     visible: true
     width: 480 / 1.2
     height: 800 / 1.2
-    title: qsTr("Hello World")
+    title: qsTr("QNews Reader")
 
     Component.onCompleted: {
         //Parser.parseJSON("top")
@@ -21,7 +19,7 @@ ApplicationWindow {
 
         background: Rectangle {
             anchors.fill: parent
-            color: "#607D8B" //"#35b566"
+            color: "#F44336" //"#607D8B" //"#35b566"
         }
 
         /* Header Text */
@@ -42,20 +40,52 @@ ApplicationWindow {
         }
 
         /* Button Backward */
-        Image {
+        TabButton {
             id: buttonBackward
-            visible: (swipeView.currentIndex) ? true : false
-            source: "qrc:/Icon/back.png"
-            height: parent.height * 0.5
-            width: height
-            x: 10
+            width: parent.height - 10
+            height: width
             anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            visible: (swipeView.currentIndex) ? true : false
 
-            MouseArea {
-                anchors.fill: parent
-                onClicked: swipeView.currentIndex = --swipeView.currentIndex
+            onClicked: swipeView.currentIndex = --swipeView.currentIndex
+
+            contentItem: Image {
+                source: "qrc:/Icon/back.png"
             }
         }
+
+//        /* Button Categories */
+//        TabButton {
+//            anchors.right: parent.right
+//            anchors.rightMargin: 5
+//            anchors.verticalCenter: parent.verticalCenter
+//            width: parent.height - 10
+//            height: width
+//            visible: (!swipeView.currentIndex) ? true : false
+
+//            contentItem: Image {
+//                source: "qrc:/Icon/menu.png"
+//                fillMode: Image.PreserveAspectFit
+//            }
+
+//            onClicked: menuCategories.open()
+
+//            Menu {
+//                id: menuCategories
+//                modal: true
+
+//                CheckBox { text: qsTr("business") }
+//                CheckBox { text: qsTr("entertainment") }
+//                CheckBox { text: qsTr("gaming") }
+//                CheckBox { text: qsTr("general") }
+//                CheckBox { text: qsTr("music") }
+//                CheckBox { text: qsTr("science-and-nature") }
+//                CheckBox { text: qsTr("sport") }
+//                CheckBox { text: qsTr("technology") }
+//            }
+//        }
     }
 
     SwipeView {

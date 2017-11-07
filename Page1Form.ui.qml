@@ -19,7 +19,11 @@ Item {
 
         delegate: Delegate.CategoryDelegate { id: listDelegate }
         model: ListModel { id: listModel }
-        ScrollBar.vertical: ScrollBar { }
+        ScrollBar.vertical: ScrollBar {
+            parent: listView
+            height: listView.availableHeight
+            width: 5
+        }
 
         section.property: "categoryName"
         section.criteria: ViewSection.FirstCharacter

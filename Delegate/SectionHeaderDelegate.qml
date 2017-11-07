@@ -16,7 +16,6 @@ Rectangle {
 
         Rectangle {
             anchors.centerIn: parent
-            color: "transparent"
             width: 32
             height: 32
 

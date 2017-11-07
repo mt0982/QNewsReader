@@ -12,5 +12,6 @@
         <file>Delegate/ArticleDelegate.qml</file>
         <file>Delegate/CategoryDelegate.qml</file>
         <file>Delegate/SectionHeaderDelegate.qml</file>
+        <file>Icon/menu.png</file>
     </qresource>
 </RCC>
